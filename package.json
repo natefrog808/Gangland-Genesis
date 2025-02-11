@@ -1,6 +1,15 @@
 {
+  "name": "argos-advanced",
+  "version": "1.0.0",
   "scripts": {
     "start": "ts-node src/examples/basic-simulation.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn src/examples/basic-simulation.ts"
+  },
+  "dependencies": {
+    "bitecs": "^0.3.38",
+    "typescript": "^4.9.5",
+    "ts-node": "^10.9.1",
+    "@types/node": "^18.15.11"
   }
 }
