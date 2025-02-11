@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "ts-node src/examples/basic-simulation.ts",
+    "build": "tsc"
+  }
+}
