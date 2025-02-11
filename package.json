@@ -13,3 +13,8 @@
     "@types/node": "^18.15.11"
   }
 }
+{
+  "scripts": {
+    "test": "ts-node src/test.ts"
+  }
+}
