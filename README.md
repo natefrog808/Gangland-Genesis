@@ -159,3 +159,71 @@ class EmotionalBehaviorSystem {
 
 ### Territory Warfare
 - Turf war mechanics
+- Resource control disputes
+- Alliance management
+- Strategic territory acquisition
+
+## Getting Started
+
+### Prerequisites
+- Node.js
+- TypeScript
+- BitECS
+
+### Installation
+```bash
+git clone https://github.com/yourusername/argos-advanced.git
+cd argos-advanced
+npm install
+```
+
+### Basic Usage
+```typescript
+import { World } from 'bitecs'
+import { ArgosAdvanced } from './src'
+
+const simulation = new ArgosAdvanced()
+simulation.update()
+```
+
+## Use Cases
+
+### Research Applications
+- Emergent behavior studies
+- Power structure dynamics
+- Economic network analysis
+- Social hierarchy formation
+- Criminal network evolution
+
+### Simulation Scenarios
+- Organizational behavior
+- Underground economies
+- Power dynamics
+- Territory control
+- Social manipulation
+
+## Performance Considerations
+
+### Optimization Strategies
+- Efficient state management through BitECS
+- Batch processing for system updates
+- Spatial partitioning for conflict detection
+- Caching for repeated calculations
+- Bitfield operations for relationship tracking
+
+## Contributing
+
+This is an experimental project in active development. Contributions are welcome, particularly in:
+- Performance optimization
+- Behavior system expansion
+- Economic model enhancement
+- Territory control mechanics
+- Intelligence system development
+
+## License
+
+MIT License
+
+## Acknowledgments
+
+Built upon the BitECS framework for efficient entity component management.
