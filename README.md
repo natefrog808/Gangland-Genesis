@@ -1,40 +1,34 @@
-# Advanced Agent Autonomy Framework
-# Gangland-Genesis
+# ArgOS Advanced Agent Framework
 
-A sophisticated agent simulation system built on BitECS, featuring autonomous agents with advanced behavioral systems, economic dynamics, and emergent social structures.
+A sophisticated agent simulation system built on BitECS, featuring advanced behavioral systems, power dynamics, economic simulation, and emergent social structures. This framework implements complex agent autonomy with features ranging from emotional dynamics to intricate power structures and criminal enterprises.
 
-## Core Features
+## Core Systems
 
-### Agent Behavioral System
-- **Emotional Core**
-  - Mood and energy state tracking
-  - Social drive and focus states
-  - Dynamic behavior selection
-  - Recent interaction memory (8-slot system)
-- **Behavioral Tasks**
-  - Exploration
-  - Rest and recovery
-  - Social interaction
-  - Productive activities
-  - Task interruption management
-
-### Economic Power System
-- **Resource Management**
-  - 8 resource types tracked efficiently using powers of 2
-  - Control over resource nodes
-  - Trade partnership tracking
-  - Market influence mechanics
-  - Economic leverage system
+### Agent Behavioral Framework
+- **Emotional Core System**
+  - Dynamic mood and energy states
+  - Social drive mechanics
+  - Focus and task management
+  - Interaction memory system
+  - Behavior selection algorithms
 
 ### Power Dynamics
-- **Emergency Powers**
-  - Crisis detection and response
-  - Emergency measure implementation
-  - Enforcer loyalty tracking
-  - Opposition monitoring
-  - Stability management
+- **Group Power Structure**
+  - Leadership hierarchies
+  - Influence tracking
+  - Alliance formation
+  - Betrayal mechanics
+  - Reputation systems
 
-### Territory Control System
+### Economic Systems
+- **Resource Management**
+  - Eight resource types
+  - Market influence mechanics
+  - Trade relationship tracking
+  - Economic leverage systems
+  - Crisis detection and response
+
+### Territory Control
 - **Spatial Management**
   - 4x4 territory grid system
   - Protection level tracking
@@ -42,67 +36,100 @@ A sophisticated agent simulation system built on BitECS, featuring autonomous ag
   - Enforcer deployment
   - Stability calculations
 
-### Criminal Enterprise System
+### Criminal Enterprise Framework
 - **Underground Economy**
-  - Shell company networks
-  - Money laundering operations
-  - Multiple laundering methods
-  - Audit risk management
+  ```typescript
+  const UndergroundEconomy = defineComponent({
+    marketAccess: Types.ui32,    // Black market access
+    contraband: [Types.ui16, 8], // Illegal resources
+    contacts: Types.ui32,        // Underground network
+    heatLevel: Types.f32        // Authority attention
+  })
+  ```
+  - Dynamic black markets
   - Front business operations
+  - Resource trafficking
+  - Heat level management
 
-- **Intelligence Network**
-  - Informant management
-  - Intel gathering and verification
-  - Network reliability tracking
-  - Compromised agent detection
-  - Coverage optimization
+- **Money Laundering**
+  ```typescript
+  const LaunderingNetwork = defineComponent({
+    shellCompanies: Types.ui32,
+    cleanMoney: Types.ui32,
+    dirtyMoney: Types.ui32,
+    auditRisk: Types.f32
+  })
+  ```
+  - Shell company networks
+  - Multi-method laundering
+  - Risk management
+  - Audit detection avoidance
+
+### Conspiracy Networks
+- **Nested Conspiracies**
+  ```typescript
+  const ConspiracyState = defineComponent({
+    membershipFlags: Types.ui32,
+    rank: [Types.ui8, 4],
+    secretGoals: [Types.ui8, 4],
+    trustNetwork: Types.ui32
+  })
+  ```
+  - Hidden power structures
+  - Goal hierarchies
+  - Trust networks
+  - Cover operations
+
+### Faction Systems
+- **Double Agents**
+  ```typescript
+  const FactionDynamics = defineComponent({
+    declaredFaction: Types.ui32,
+    trueFaction: Types.ui32,
+    infiltrationLevel: Types.f32,
+    discoveryRisk: Types.f32
+  })
+  ```
+  - Deep cover operations
+  - Intel management
+  - Risk assessment
+  - Cover identity maintenance
 
 ## Technical Implementation
 
-### Core Systems
-```typescript
-// Emotional Core
-const EmotionalCore = defineComponent({
-  mood: Types.f32,          // Current emotional state
-  energy: Types.f32,        // Energy level
-  socialDrive: Types.f32,   // Social interaction drive
-  focusState: Types.f32     // Task focus capability
-})
-
-// Territory Management
-const TerritoryControl = defineComponent({
-  territories: Types.ui32,      // Bitfield of controlled areas
-  protection: [Types.ui8, 16],  // Area protection levels
-  income: [Types.ui16, 16],     // Territory revenue
-  stability: [Types.f32, 16]    // Control stability
-})
-
-// Economic System
-const EconomicState = defineComponent({
-  resources: [Types.ui32, 8],   // Resource quantities
-  control: Types.ui32,          // Resource node control
-  marketInfluence: Types.f32,   // Market impact
-  trade: [Types.ui16, 16]       // Trade relationships
-})
-```
-
 ### Performance Optimizations
 - Bitfield operations for relationship tracking
-- Spatial partitioning for territory conflicts
-- Efficient caching systems for decision-making
+- Spatial partitioning for territory systems
+- Efficient caching systems
 - Batch processing for economic updates
-- Optimized memory usage through BitECS
+
+### Memory Management
+```typescript
+class CrimeSystem {
+  private readonly MAX_HEAT = 0.8
+  private readonly COOLDOWN_TIME = 1000
+  
+  constructor(world) {
+    this.operators = defineQuery([
+      HitOperations, 
+      IntelNetwork,
+      WarfareState
+    ])
+    this.hitOpportunities = new Map()
+    this.recentHits = new Array()
+  }
+}
+```
 
 ## System Integration
 
-### Behavior Processing
+### Behavioral Processing
 ```typescript
 class EmotionalBehaviorSystem {
   update() {
     const entities = this.entities(this.world)
     
     for (const entity of entities) {
-      // Single-pass processing
       const emotion = EmotionalCore.get(entity)
       const behavior = BehaviorState.get(entity)
       
@@ -116,125 +143,19 @@ class EmotionalBehaviorSystem {
 }
 ```
 
-### Territory Management
-```typescript
-class TerritorySystem {
-  update() {
-    // Update territory control
-    this.updateTerritories()
-    
-    // Resolve active conflicts
-    this.resolveConflicts()
-    
-    // Process individual actions
-    for (const gangster of this.gangsters(this.world)) {
-      if (this.shouldExpand(territory, warfare)) {
-        this.planExpansion(gangster, territory, warfare)
-      }
-      this.maintainControl(gangster, territory, warfare)
-    }
-  }
-}
-```
+## Advanced Features
 
-## Use Cases
+### Power Vacuum Mechanics
+- Leadership succession systems
+- Crisis management
+- Power structure collapse handling
+- Emergency powers implementation
 
-### Research Applications
-- Emergent behavior studies
-- Social system dynamics
-- Economic network analysis
-- Power structure research
-- Group psychology modeling
+### Intelligence Networks
+- Informant management
+- Intel gathering and verification
+- Network reliability tracking
+- Compromised agent detection
 
-### Simulation Scenarios
-- Organizational behavior
-- Market dynamics
-- Resource competition
-- Territory control
-- Social hierarchy formation
-
-### Game Development
-- NPC faction systems
-- Dynamic economy simulation
-- Emergent narrative generation
-- AI opponent behavior
-- Social interaction systems
-
-## Performance Considerations
-
-### Optimization Strategies
-- Efficient state management through BitECS
-- Batch processing for system updates
-- Spatial partitioning for conflict detection
-- Caching for repeated calculations
-- Bitfield operations for relationship tracking
-
-### Memory Management
-- Fixed-size arrays for predictable memory usage
-- Efficient component state storage
-- Optimized data structures for quick access
-- Cache-friendly data organization
-- Minimal garbage collection impact
-
-## Getting Started
-
-### Prerequisites
-- Node.js
-- TypeScript
-- BitECS
-
-### Installation
-```bash
-npm install
-npm run build
-```
-
-### Basic Usage
-```typescript
-import { World } from 'bitecs'
-import { EmotionalBehaviorSystem, TerritorySystem } from './systems'
-
-const world = World()
-const behaviorSystem = new EmotionalBehaviorSystem(world)
-const territorySystem = new TerritorySystem(world)
-
-// Game loop
-function update() {
-  behaviorSystem.update()
-  territorySystem.update()
-  world.tick()
-}
-```
-
-## Future Development
-
-### Planned Features
-- Enhanced social network dynamics
-- Deep learning integration
-- Advanced economic modeling
-- Improved territory AI
-- Extended behavior patterns
-
-### Research Directions
-- Complex emergence patterns
-- Network effect studies
-- Economic behavior analysis
-- Social structure formation
-- Power dynamic modeling
-
-## Contributing
-
-This is an experimental project in active development. Contributions are welcome, particularly in:
-- Performance optimization
-- Behavior system expansion
-- Economic model enhancement
-- Territory control mechanics
-- Documentation improvements
-
-## License
-
-MIT License
-
-## Acknowledgments
-
-Built upon the excellent BitECS framework for efficient entity component management.
+### Territory Warfare
+- Turf war mechanics
