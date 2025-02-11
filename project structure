@@ -1,0 +1,6 @@
+mkdir argos-advanced
+cd argos-advanced
+mkdir src
+mkdir src/components
+mkdir src/systems
+mkdir src/examples
